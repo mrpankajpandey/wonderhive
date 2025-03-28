@@ -1,0 +1,84 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex: 1;
+}
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+.nav-link{
+   color: #222222 !important;
+   font-size: 1.2rem !important;
+}
+.icon{
+    color: rgb(230, 48, 48);
+    font-size: 1.8rem;
+}
+
+/* footer  */
+.f-info{
+    text-align: center;
+    height: 8rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+    background-color: #ebebeb;
+    padding: 12px 0;
+   
+}
+.f-info-links a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #222222;
+    
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+
+.f-info-socails,
+.f-info-links, .f-info-brand{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.f-info-socails i{
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+/* cards */
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem !important;
+
+}
+.card-img-top{
+    border-radius: 8px;
+    width: 600px;
+    height: 600px;
+    background-image: cover;
+}
+
+.card-btn{
+    width: 100%;
+}
+
+.card-location{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btns
+
+.show-img{
+    height: 30vh;
+   
+}
