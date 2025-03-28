@@ -1,34 +1,61 @@
-<head>
-  <link rel="shortcut icon" href="" type="image/x-icon">
-</head>
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><i class="icon fa-regular fa-compass"></i>Wunderhive</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="/listings">Explore</a>
-        </div>
-        <div class="nav nav-link ms-auto">
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top border-bottom">
+  <div class="container-fluid">
+    <!-- Navbar Brand/Logo -->
+    <a class="navbar-brand fw-bold" href="/listings">
+      <i class="icon fa-regular fa-compass"></i> Wonderhive
+    </a>
 
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-danger" type="submit">Search</button>
-          </form>
-        </div>
-        <div class="navbar-nav ms-auto">
-          <% if(!currUser) {%>
-            <a class="nav-link" href="/login">Login</a>
-            <a class="nav-link" href="/signup">Signup</a>
-            <% } %>
-            <% if(currUser) {%>
-              <a class="nav-link" href="/listings/new">Add New Listings</a>
-          <a class="btn btn-danger" href="/logout">Logout</a>
-          <% } %>
-        </div>
+    <!-- Toggler Button for Mobile View -->
+    <button
+      class="navbar-toggler "
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      </div>
+    <!-- Collapsible Content for Navbar -->
+    <div class="collapse navbar-collapse bg-light" id="navbarSupportedContent">
+      <!-- Left Side - Navigation Links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/listings">Explore</a>
+        </li>
+      </ul>
+
+      <!-- Center - Search Form -->
+      <form class="d-flex">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+      <!-- Right Side - Auth/User Links -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if (!currUser) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup">Signup</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/listings/new">Add New Listing</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-danger btn-sm ms-2 mt-2" href="/logout">Logout</a>
+        </li>
+        <% } %>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

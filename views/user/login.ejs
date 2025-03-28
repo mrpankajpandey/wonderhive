@@ -1,10 +1,14 @@
 <% layout("./layouts/boilerplate.ejs") %>
 
-<div class="row mt-3">
-  <div class="col-6 offset-3">
-    <h2>Login Accounts...</h2>
-     <form action="/login" method="post" class="needs-validation" novalidate>
-          
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-10 col-12">
+      <div class="card shadow-sm p-4">
+        <h2 class="text-center mb-4">Login to Your Account</h2>
+
+        <!-- Login Form -->
+        <form action="/login" method="post" class="needs-validation" novalidate>
+          <!-- Username -->
           <div class="mb-3">
             <label for="Username" class="form-label">Username</label>
             <input
@@ -13,23 +17,40 @@
               class="form-control"
               id="Username"
               required
-              placeholder="Enter Image Url"
-  
+              placeholder="Enter your username"
             />
+            <div class="invalid-feedback">Please enter your username.</div>
           </div>
+
+          <!-- Password -->
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input
               type="password"
               name="password"
               class="form-control"
+              id="password"
               required
-              placeholder="Enter password"
-  
+              placeholder="Enter your password"
             />
+            <div class="invalid-feedback">Please enter your password.</div>
           </div>
-       <button class="btn btn-success">Login</button>
-        
-     </form>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-success w-100">Login</button>
+        </form>
+
+        <!-- Signup Link -->
+        <div class="text-center mt-3">
+          <p>
+            Don't have an account?
+            <a href="/signup" class="text-decoration-none">Sign Up</a>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<!-- Optional: Bootstrap Form Validation Script -->
+

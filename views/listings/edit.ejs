@@ -1,78 +1,121 @@
 <% layout("./layouts/boilerplate.ejs") %>
-<body>
-    <div class="row">
-        <div class="col-8 offset-2">
-            <h2>Edit Listing</h2>
-          <form action="/listings/<%=listing._id  %>?_method=PUT" method="post" enctype="multipart/form-data">
-            <div class="mb-3">
-              <label for="title" class="form-label">Title</label>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+      <div class="card shadow-sm p-4">
+        <h2 class="text-center mb-4">Edit Listing</h2>
+
+        <!-- Edit Form -->
+        <form
+          action="/listings/<%=listing._id%>?_method=PUT"
+          method="post"
+          enctype="multipart/form-data"
+          class="needs-validation"
+          novalidate
+        >
+          <!-- Title -->
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+              type="text"
+              name="listing[title]"
+              class="form-control"
+              placeholder="Enter the title"
+              value="<%=listing.title%>"
+              required
+            />
+            <div class="invalid-feedback">Please enter a title.</div>
+          </div>
+
+          <!-- Description -->
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea
+              class="form-control"
+              name="listing[description]"
+              rows="4"
+              placeholder="Enter the description"
+              required
+            ><%=listing.description%></textarea>
+            <div class="invalid-feedback">Please enter a description.</div>
+          </div>
+
+          <!-- Existing Image Preview -->
+          <div class="mb-3 ">
+            <img
+              src="<%=listing.image.url%>"
+              alt="Listing Image"
+              class="img-fluid rounded"
+              height="150px"
+              width="250px"
+            />
+          </div>
+
+          <!-- Upload New Image -->
+          <div class="mb-3">
+            <label for="image" class="form-label">Upload New Image</label>
+            <input
+              type="file"
+              name="listing[image]"
+              class="form-control"
+              accept="image/*"
+            />
+            <div class="form-text">Leave empty to keep the current image.</div>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input
+              type="number"
+              name="listing[price]"
+              class="form-control"
+              placeholder="Enter a price"
+              value="<%=listing.price%>"
+              required
+            />
+            <div class="invalid-feedback">Please enter a valid price.</div>
+          </div>
+
+          <div class="row">
+            <!-- Location -->
+            <div class="mb-3 col-md-6">
+              <label for="location" class="form-label">Location</label>
               <input
                 type="text"
-                name="listing[title]"
+                name="listing[location]"
                 class="form-control"
-                placeholder="Enter the title"
-                value="<%=listing.title  %>"
+                placeholder="Enter a location"
+                value="<%=listing.location%>"
+                required
               />
+              <div class="invalid-feedback">Please enter a location.</div>
             </div>
-            <div class="mb-3">
-              <label for="description" class="form-label">description</label>
-              <textarea
-                class="form-control"
-                name="listing[description]"
-                placeholder="Enter the description"
-              ><%=listing.description  %>
-              </textarea>
-            </div>
-            <div class="mb-3">
-              <img src="<%=listing.image.url  %>" alt="originalImgUrl">
-            </div>
-            <div class="mb-3">
-              <label for="image" class="form-label">Image Url</label>
-              <input
-                type="file"
-                name="listing[image]"
-                class="form-control"
-        
-              />
-            </div>
-    
-            <div class="mb-3">
-              <label for="price" class="form-label">Price</label>
+
+            <!-- Country -->
+            <div class="mb-3 col-md-6">
+              <label for="country" class="form-label">Country</label>
               <input
                 type="text"
-                name="listing[price]"
+                name="listing[country]"
                 class="form-control"
-                placeholder="Enter a price"
-                value="<%=listing.price  %>"
+                placeholder="Enter a country"
+                value="<%=listing.country%>"
+                required
               />
+              <div class="invalid-feedback">Please enter a country.</div>
             </div>
-            <div class="row">
-    
-                <div class="mb-3 col-md-4">
-                    <label for="location" class="form-label">Location</label>
-                    <input
-                    type="text"
-                    name="listing[location]"
-                    class="form-control"
-                    placeholder="Enter a location"
-                    value="<%=listing.location  %>"
-                    />
-                </div>
-                <div class="mb-3 col-md-8">
-                    <label for="country" class="form-label">Country</label>
-                    <input
-                    type="text"
-                    name="listing[country]"
-                    class="form-control"
-                    placeholder="Enter a country name"
-                    value="<%=listing.country  %>"
-                    />
-                </div>
-            </div>
-            <div class="mb-3">
-              <button class="btn btn-primary" type="submit">Save</button>
-            </div>
-          </form>
-        </div>
-        </div>
-    </body>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="d-grid">
+            <button class="btn btn-primary" type="submit">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Optional: Bootstrap Form Validation Script -->
